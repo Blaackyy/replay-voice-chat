@@ -54,11 +54,6 @@ public class ReplayInterface implements ClientModInitializer {
         return ((ConnectionEventHandlerAccessor) ReplayModRecording.instance.getConnectionEventHandler()).getRecordingEventHandler() != null;
     }
 
-    //Adds a fake packet into recording data
-    public void sendFakePacket(ResourceLocation resourceLocation, FriendlyByteBuf packetData) {
-        sendFakePacket(ServerPlayNetworking.createS2CPacket(resourceLocation, packetData));
-    }
-
     public void sendFakePacket(Packet<?> packet) {
         if (ReplayModRecording.instance.getConnectionEventHandler() != null) {
             ReplayModRecording.instance.getConnectionEventHandler().getPacketListener().save(packet);

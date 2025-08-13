@@ -11,6 +11,7 @@ import de.maxhenkel.voicechat.voice.client.ClientManager;
 import io.netty.buffer.Unpooled;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.network.protocol.common.ClientboundCustomPayloadPacket;
 import xyz.breadloaf.replaymodinterface.ReplayInterface;
 
 import java.util.UUID;
@@ -49,9 +50,7 @@ public class VoicechatRecorder {
         if (!ReplayInterface.INSTANCE.isReplayModActive()) {
             return;
         }
-        FriendlyByteBuf buf = new FriendlyByteBuf(Unpooled.buffer());
-        packet.toBytes(buf);
-        ReplayInterface.INSTANCE.sendFakePacket(packet.getIdentifier(), buf);
+        ReplayInterface.INSTANCE.sendFakePacket(new ClientboundCustomPayloadPacket(packet));
     }
 
 }
