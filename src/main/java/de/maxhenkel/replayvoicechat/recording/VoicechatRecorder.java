@@ -8,9 +8,7 @@ import de.maxhenkel.replayvoicechat.net.StaticSoundPacket;
 import de.maxhenkel.voicechat.api.events.ClientReceiveSoundEvent;
 import de.maxhenkel.voicechat.api.events.ClientSoundEvent;
 import de.maxhenkel.voicechat.voice.client.ClientManager;
-import io.netty.buffer.Unpooled;
 import net.minecraft.client.Minecraft;
-import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.protocol.common.ClientboundCustomPayloadPacket;
 import xyz.breadloaf.replaymodinterface.ReplayInterface;
 
